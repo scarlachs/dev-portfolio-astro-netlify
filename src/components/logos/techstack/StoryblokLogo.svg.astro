@@ -1,8 +1,10 @@
 ---
+import { randomAlphaNumeric } from "@/ts/utils";
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"svg">;
 
+const id = `storyblok-${randomAlphaNumeric(6)}`;
 const { ...rest } = Astro.props;
 ---
 
@@ -11,10 +13,10 @@ const { ...rest } = Astro.props;
 	width="45"
 	height="53"
 	viewBox="0 0 45 53"
-	aria-labelledby="storyblok"
+	aria-labelledby={id}
 	{...rest}
 >
-	<title id="storyblok">Storyblok</title>
+	<title {id}>Storyblok</title>
 	<g
 		id="storyblok-logo-kit"
 		stroke="none"

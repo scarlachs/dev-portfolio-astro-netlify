@@ -1,8 +1,10 @@
 ---
+import { randomAlphaNumeric } from "@/ts/utils";
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"svg">;
 
+const id = `bootstrap-${randomAlphaNumeric(6)}`;
 const { ...rest } = Astro.props;
 ---
 
@@ -11,10 +13,10 @@ const { ...rest } = Astro.props;
 	width="512"
 	height="408"
 	viewBox="0 0 512 408"
-	aria-labelledby="bootstrap"
+	aria-labelledby={id}
 	{...rest}
 >
-	<title id="bootstrap">Bootstrap</title>
+	<title {id}>Bootstrap</title>
 	<defs>
 		<linearGradient
 			id="bs-logo-a"
