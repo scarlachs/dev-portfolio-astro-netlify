@@ -13,9 +13,3 @@
 [[redirects]]
   from = "/trustpilot"
   to = "https://de.trustpilot.com/review/schaar.dev"
-
-[[redirects]]
-  from = "https://dev-portfolio-astro.netlify.app/*"
-  to = "https://www.schaar.dev/:splat"
-  status = 301
-  force = true
