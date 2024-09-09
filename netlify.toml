@@ -1,0 +1,21 @@
+[[redirects]]
+  from = "/linkedin"
+  to = "https://www.linkedin.com/in/pascalschaar/"
+
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/scarlachs"
+
+[[redirects]]
+  from = "/photos"
+  to = "https://pascal.photos"
+
+[[redirects]]
+  from = "/trustpilot"
+  to = "https://de.trustpilot.com/review/schaar.dev"
+
+[[redirects]]
+  from = "https://dev-portfolio-astro.netlify.app/*"
+  to = "https://www.schaar.dev/:splat"
+  status = 301
+  force = true

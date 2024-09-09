@@ -1,0 +1,39 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import Section from "@/components/Section.astro";
+import Headline2 from "@/components/typography/Headline2.astro";
+import ButtonGroup from "@/components/ButtonGroup.astro";
+import { links } from "@/ts/constants";
+import { CalendarIcon, ChatBubbleIcon } from "@radix-ui/react-icons";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"section">;
+
+const { id, ...rest } = Astro.props;
+---
+
+<Section {id} {...rest}>
+	<div class="mx-auto max-w-2xl md:text-center">
+		<Headline2>Zeit für einen Kaffee?</Headline2>
+		<p class="mt-2.5 text-balance">
+			Du möchtest über neue Projekte sprechen? Lass uns zusammenkommen und
+			gemeinsam besprechen, wie wir sie Wirklichkeit werden lassen.
+		</p>
+		<ButtonGroup class="mt-5 md:justify-center">
+			<a
+				href={links.calcom}
+				rel="noopener"
+				class={buttonVariants({ variant: "default" })}
+				>Kaffee-Date vereinbaren<CalendarIcon
+					className="ml-2 size-4"
+				/></a
+			>
+			<a
+				href={links.whatsapp}
+				rel="noopener"
+				class={buttonVariants({ variant: "secondary" })}
+				>Text-Chat starten<ChatBubbleIcon className="ml-2 size-4" /></a
+			>
+		</ButtonGroup>
+	</div>
+</Section>

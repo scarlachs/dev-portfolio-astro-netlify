@@ -1,0 +1,46 @@
+---
+import { cn } from "@/ts/utils";
+import SocialNav from "@/components/SocialNav.astro";
+import { buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+
+const items: { label: string; link: string }[] = [
+	{
+		label: "Impressum",
+		link: "/impressum",
+	},
+	{
+		label: "Datenschutz",
+		link: "/datenschutz",
+	},
+];
+---
+
+<footer class="container">
+	<div
+		class="flex items-center justify-between gap-4 py-4 max-md:flex-col-reverse md:gap-6 md:py-2.5"
+	>
+		<p>Copyright &copy; {new Date().getFullYear()} Pascal Schaar</p>
+		<div class="flex items-center gap-4 max-md:flex-col md:h-9 md:gap-2">
+			<SocialNav />
+			<Separator orientation="vertical" className="max-md:hidden" />
+			<nav class="flex items-center">
+				{
+					items.map((item) => {
+						return (
+							<a
+								href={item.link}
+								class={cn(
+									buttonVariants({ variant: "link" }),
+									"text-current",
+								)}
+							>
+								{item.label}
+							</a>
+						);
+					})
+				}
+			</nav>
+		</div>
+	</div>
+</footer>

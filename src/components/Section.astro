@@ -1,0 +1,16 @@
+---
+import { cn } from "@/ts/utils";
+import type { HTMLAttributes } from "astro/types";
+
+type Props = HTMLAttributes<"section">;
+
+const { class: className, id, ...rest } = Astro.props;
+---
+
+<section
+	class={cn("container mb-16 scroll-mt-20 md:mb-24", className)}
+	{id}
+	{...rest}
+>
+	<slot />
+</section>

@@ -1,0 +1,28 @@
+---
+import Contact from "@/components/Contact.astro";
+import Layout, { type Props } from "../layouts/Layout.astro";
+import Intro from "@/components/Intro.astro";
+import Section from "@/components/Section.astro";
+import { About } from "@/components/About";
+import Projects from "@/components/Projects.astro";
+
+const meta: Props = {
+	title: "Frontend Entwickler",
+	description:
+		"Ich bin Frontend-Entwickler und zeige hier eine Auswahl meiner bisherigen Projekte. ⇒ Jetzt dein Projekt anfragen.",
+};
+---
+
+<Layout {...meta}>
+	<Intro />
+
+	<Section id="projects">
+		<Projects />
+	</Section>
+
+	<Section id="about">
+		<About client:idle />
+	</Section>
+
+	<Contact id="contact" />
+</Layout>

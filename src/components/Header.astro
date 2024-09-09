@@ -1,0 +1,30 @@
+---
+import PascalLogo from "@/components/logos/PascalLogo.svg.astro";
+import MainNav from "@/components/MainNav.astro";
+import SocialNav from "@/components/SocialNav.astro";
+import { Separator } from "@/components/ui/separator";
+import { ModeToggle } from "./ModeToggle";
+---
+
+<header
+	class="sticky top-0 z-50 border-b border-slate-900/10 backdrop-blur supports-[backdrop-filter]:bg-slate-100/60 dark:border-slate-50/10 dark:supports-[backdrop-filter]:bg-slate-950/60"
+>
+	<div class="container flex items-center justify-between py-2.5">
+		<a
+			class="h-9 w-auto rounded-md focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
+			href="/"
+		>
+			<PascalLogo class="inline-flex h-full w-auto" />
+			<span class="sr-only">Pascal</span>
+		</a>
+
+		<div class="flex h-9 items-center space-x-2">
+			<MainNav />
+			<Separator orientation="vertical" className="max-sm:hidden" />
+			<div class="flex items-center">
+				<SocialNav />
+				<ModeToggle client:idle />
+			</div>
+		</div>
+	</div>
+</header>

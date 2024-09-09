@@ -1,0 +1,26 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import Layout, { type Props } from "@/layouts/Layout.astro";
+
+const meta: Props = {
+	title: "404: Seite nicht gefunden",
+	description: "Ich bin Frontend-Entwickler und zeige hier nichts.",
+	robots: true,
+};
+---
+
+<Layout {...meta}>
+	<section class="container flex h-full items-center py-16">
+		<div>
+			<h1 class="mb-5 text-3xl font-bold lg:text-5xl">
+				404: Seite nicht gefunden
+			</h1>
+			<p class="mb-10 text-lg">
+				Leider existiert die von dir gesuchte Seite nicht.
+			</p>
+			<a href="/" class={buttonVariants({ variant: "secondary" })}>
+				Zur Startseite
+			</a>
+		</div>
+	</section></Layout
+>

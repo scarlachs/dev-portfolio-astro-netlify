@@ -1,0 +1,33 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+
+const items: { label: string; link: string }[] = [
+	{
+		label: "Projekte",
+		link: "/#projects",
+	},
+	{
+		label: "Über mich",
+		link: "/#about",
+	},
+	{
+		label: "Kontakt",
+		link: "/#contact",
+	},
+];
+---
+
+<nav class="flex items-center max-sm:hidden" aria-label="Haupt-Navigation">
+	{
+		items.map((item) => {
+			return (
+				<a
+					href={item.link}
+					class={buttonVariants({ variant: "ghost" })}
+				>
+					{item.label}
+				</a>
+			);
+		})
+	}
+</nav>

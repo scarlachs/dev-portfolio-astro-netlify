@@ -1,0 +1,16 @@
+---
+import Section from "@/components/Section.astro";
+import Layout, { type Props } from "@/layouts/Layout.astro";
+
+const meta: Props = Astro.props;
+---
+
+<Layout {...meta}>
+	<Section class="container pt-16">
+		<div
+			class="prose prose-slate dark:prose-invert prose-headings:hyphens-auto prose-headings:text-foreground prose-headings:[word-break:break-word] prose-a:hyphens-none prose-a:[word-break:break-word] md:mb-24 [&_*[id]]:scroll-mt-20"
+		>
+			<slot />
+		</div>
+	</Section>
+</Layout>

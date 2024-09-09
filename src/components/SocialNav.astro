@@ -1,0 +1,22 @@
+---
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { links } from "@/ts/constants";
+import { buttonVariants } from "@/components/ui/button";
+---
+
+<nav class="flex items-center" aria-label="Soziale Netzwerke">
+	<a
+		href={links.github}
+		class={buttonVariants({ variant: "ghost", size: "icon" })}
+		aria-label="Pascals GitHub Profil"
+	>
+		<GitHubLogoIcon className="size-5" />
+	</a>
+	<a
+		href={links.linkedin}
+		class={buttonVariants({ variant: "ghost", size: "icon" })}
+		aria-label="Pascals LinkedIn Profil"
+	>
+		<LinkedInLogoIcon className="size-5" />
+	</a>
+</nav>

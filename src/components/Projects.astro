@@ -1,0 +1,238 @@
+---
+import type { ImageMetadata } from "astro";
+import PortfolioPhotography from "@/assets/images/projects/website-portfolio-photography.png";
+import PortfolioDeveloper from "@/assets/images/projects/website-portfolio-developer.png";
+import LandingpagePersonalCoach from "@/assets/images/projects/website-landingpage-personal-coach.png";
+import LandingpageMediaDesigner from "@/assets/images/projects/website-landingpage-media-designer.png";
+import { Image } from "astro:assets";
+import ButtonGroup from "./ButtonGroup.astro";
+import { buttonVariants } from "./ui/button";
+import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import HtmlLogo from "./logos/techstack/HtmlLogo.svg.astro";
+import CssLogo from "./logos/techstack/CssLogo.svg.astro";
+import TailwindcssLogo from "./logos/techstack/TailwindcssLogo.svg.astro";
+import ShadcnLogo from "./logos/techstack/ShadcnLogo.svg.astro";
+import ShadcnsvelteLogo from "./logos/techstack/ShadcnsvelteLogo.svg.astro";
+import BootstrapLogo from "./logos/techstack/BootstrapLogo.svg.astro";
+import ScssLogo from "./logos/techstack/ScssLogo.svg.astro";
+import JavascriptLogo from "./logos/techstack/JavascriptLogo.svg.astro";
+import TypescriptLogo from "./logos/techstack/TypescriptLogo.svg.astro";
+import SveltekitLogo from "./logos/techstack/SveltekitLogo.svg.astro";
+import AstroLogo from "./logos/techstack/AstroLogo.astro";
+import ReactLogo from "./logos/techstack/ReactLogo.svg.astro";
+import NextjsLogo from "./logos/techstack/NextjsLogo.svg.astro";
+import StoryblokLogo from "./logos/techstack/StoryblokLogo.svg.astro";
+import Typo3Logo from "./logos/techstack/Typo3Logo.svg.astro";
+import WebpackLogo from "./logos/techstack/WebpackLogo.svg.astro";
+
+type stack =
+	| "html"
+	| "css"
+	| "tailwindcss"
+	| "shadcn"
+	| "shadcn-svelte"
+	| "bootstrap"
+	| "scss"
+	| "javascript"
+	| "typescript"
+	| "sveltekit"
+	| "webpack"
+	| "astro"
+	| "react"
+	| "nextjs"
+	| "typo3"
+	| "storyblok";
+
+type ProjectText = {
+	title: string;
+	copy: string;
+	website: string;
+	github?: string;
+	usedStack: stack[];
+};
+
+type ProjectImage = {
+	file: ImageMetadata;
+	alt?: string;
+};
+
+type Project = { text: ProjectText; image: ProjectImage };
+
+const projects: Project[] = [
+	{
+		text: {
+			title: "Portfolio: Fotografie",
+			copy: "Eine Website, die meine Leidenschaft als Fotograf übersichtlich darstellt. Einfache Nutzerführung und ein exklusiver Model-Login.",
+			website: "https://www.pascalschaar.com",
+			usedStack: ["sveltekit", "typescript", "tailwindcss"],
+		},
+		image: {
+			file: PortfolioPhotography,
+		},
+	},
+	{
+		text: {
+			title: "Portfolio: Entwicklung",
+			copy: "Willkommen in meiner Welt des Codes! Diese Website betrachtest du bereits. Wahlweise im Light- oder Dark-Mode.",
+			website: "https://www.schaar.dev",
+			github: "https://github.com/scarlachs/dev-portfolio-astro",
+			usedStack: [
+				"astro",
+				"react",
+				"typescript",
+				"tailwindcss",
+				"shadcn",
+			],
+		},
+		image: {
+			file: PortfolioDeveloper,
+		},
+	},
+	{
+		text: {
+			title: "Landingpage: Personal Trainer",
+			copy: "Ganzheitliches Training für ein positives Lebensgefühl. Im individuellen 1:1 Personal Coaching für Körper und Geist.",
+			website: "https://marcel.fit",
+			usedStack: [
+				"nextjs",
+				"react",
+				"typescript",
+				"tailwindcss",
+				"shadcn",
+			],
+		},
+		image: {
+			file: LandingpagePersonalCoach,
+		},
+	},
+	{
+		text: {
+			title: "Landingpage: Mediendesigner",
+			copy: "",
+			website: "https://www.creativestudio-lb.de",
+			usedStack: ["sveltekit", "typescript", "tailwindcss", "storyblok"],
+		},
+		image: {
+			file: LandingpageMediaDesigner,
+		},
+	},
+];
+---
+
+{
+	projects.map((project, index) => {
+		return (
+			<div class="mb-16 grid gap-5 last:mb-0 md:mb-24 md:grid-cols-2 md:items-center md:gap-10">
+				<div
+					class={
+						index % 2 === 1
+							? "order-2 lg:pe-16"
+							: "max-md:order-2 lg:ps-16"
+					}
+				>
+					{project.text.usedStack.length > 0 && (
+						<ul class="mb-2.5 flex gap-3">
+							{project.text.usedStack.map((item) => {
+								return (
+									<li>
+										{item === "html" && (
+											<HtmlLogo class="size-7" />
+										)}
+										{item === "css" && (
+											<CssLogo class="size-7" />
+										)}
+										{item === "tailwindcss" && (
+											<TailwindcssLogo class="size-7" />
+										)}
+										{item === "shadcn" && (
+											<ShadcnLogo class="size-7" />
+										)}
+										{item === "shadcn-svelte" && (
+											<ShadcnsvelteLogo class="size-7" />
+										)}
+										{item === "bootstrap" && (
+											<BootstrapLogo class="size-7" />
+										)}
+										{item === "scss" && (
+											<ScssLogo class="size-7" />
+										)}
+										{item === "javascript" && (
+											<JavascriptLogo class="size-7" />
+										)}
+										{item === "typescript" && (
+											<TypescriptLogo class="size-7" />
+										)}
+										{item === "sveltekit" && (
+											<SveltekitLogo class="size-7" />
+										)}
+										{item === "astro" && (
+											<AstroLogo class="size-7" />
+										)}
+										{item === "react" && (
+											<ReactLogo class="size-7" />
+										)}
+										{item === "nextjs" && (
+											<NextjsLogo class="size-7" />
+										)}
+										{item === "webpack" && (
+											<WebpackLogo class="size-7" />
+										)}
+										{item === "typo3" && (
+											<Typo3Logo class="size-7" />
+										)}
+										{item === "storyblok" && (
+											<StoryblokLogo class="size-7" />
+										)}
+									</li>
+								);
+							})}
+						</ul>
+					)}
+					<h2 class="text-2xl font-bold md:text-3xl">
+						{project.text.title}
+					</h2>
+					<p class="mt-2.5 text-balance">{project.text.copy}</p>
+					<ButtonGroup class="mt-5">
+						<a
+							href={project.text.website}
+							class={buttonVariants({
+								variant: "default",
+							})}
+							target="_blank"
+							rel="noopener"
+						>
+							Projekt ansehen
+							<ExternalLinkIcon className="ml-2 size-4" />
+						</a>
+						{project.text.github && (
+							<a
+								href={project.text.github}
+								rel="noopener"
+								target="_blank"
+								class={buttonVariants({
+									variant: "secondary",
+								})}
+							>
+								Code ansehen{" "}
+								<GitHubLogoIcon className="ml-2 size-4" />
+							</a>
+						)}
+					</ButtonGroup>
+				</div>
+				<div class:order-1={index % 2 === 1}>
+					<Image
+						class="h-auto w-full"
+						src={project.image.file}
+						alt={
+							project.image.alt
+								? project.image.alt
+								: `Website ${project.text.website}`
+						}
+						widths={[343, 686, 1296]}
+						sizes="(max-width: 639.98px) calc(100vw - 2rem), (max-width: 767.98px) 576px, (max-width: 1023.98px) 332px, (max-width: 1279.98px) 460px, (max-width: 1399.98px) 588px, 648px"
+					/>
+				</div>
+			</div>
+		);
+	})
+}
