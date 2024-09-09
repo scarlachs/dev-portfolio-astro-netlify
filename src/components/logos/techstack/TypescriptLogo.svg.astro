@@ -1,8 +1,10 @@
 ---
+import { randomAlphaNumeric } from "@/ts/utils";
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"svg">;
 
+const id = `typescript-${randomAlphaNumeric(6)}`;
 const { ...rest } = Astro.props;
 ---
 
@@ -12,10 +14,10 @@ const { ...rest } = Astro.props;
 	height="256"
 	viewBox="0 0 256 256"
 	fill="none"
-	aria-labelledby="typescript"
+	aria-labelledby={id}
 	{...rest}
 >
-	<title id="typescript">TypeScript</title>
+	<title {id}>TypeScript</title>
 	<rect fill="#3178c6" width="256" height="256" rx="20"></rect>
 	<path
 		clip-rule="evenodd"

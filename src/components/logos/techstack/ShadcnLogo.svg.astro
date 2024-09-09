@@ -1,9 +1,10 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { cn } from "@/ts/utils";
+import { cn, randomAlphaNumeric } from "@/ts/utils";
 
 type Props = HTMLAttributes<"svg">;
 
+const id = `shadcn-${randomAlphaNumeric(6)}`;
 const { class: className, ...rest } = Astro.props;
 ---
 
@@ -13,11 +14,11 @@ const { class: className, ...rest } = Astro.props;
 	height="256"
 	viewBox="0 0 256 256"
 	fill="none"
-	aria-labelledby="shadcn"
+	aria-labelledby={id}
 	class={cn(className, "text-zinc-950 dark:text-zinc-50")}
 	{...rest}
 >
-	<title id="shadcn">shadcn/ui</title>
+	<title {id}>shadcn/ui</title>
 	<line
 		x1="208"
 		y1="128"
